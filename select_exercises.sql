@@ -23,7 +23,7 @@ WHERE release_date BETWEEN 1990 AND 1999;
 -- Which albums had less than 20 million certified sales
 SELECT name
 FROM albums
-WHERE sales < 20000000;
+WHERE sales < 20;
 
 -- All the albums with a genre of "Rock"
 SELECT name
