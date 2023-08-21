@@ -46,4 +46,11 @@ WHERE MONTH(birth_date) = 12 AND DAY(birth_date) = 25 AND YEAR(hire_date) LIKE '
 ORDER BY hire_date DESC, birth_date ASC;
 
 
+--
+
+SELECT
+    DATEDIFF(CURDATE(), hire_date)
+FROM employees
+WHERE MONTH(birth_date) = 12 AND DAY(birth_date) = 25 AND YEAR(hire_date) = 1990;
+
 
