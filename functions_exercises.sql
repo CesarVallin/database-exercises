@@ -46,7 +46,7 @@ WHERE MONTH(birth_date) = 12 AND DAY(birth_date) = 25 AND YEAR(hire_date) LIKE '
 ORDER BY hire_date DESC, birth_date ASC;
 
 
---
+-- For your query of employees born on Christmas and hired in the 90s, use datediff() to find how many days they have been working at the company (Hint: You might also need to use now() or curdate()).
 
 SELECT
     DATEDIFF(CURDATE(), hire_date)
