@@ -41,6 +41,20 @@ AND dept_emp.to_date = '9999-01-01'
 GROUP BY titles.title
 ;
 
+-- Find the current salary of all current managers.
+SELECT departments.dept_name AS "Department Name", CONCAT(employees.first_name, ' ', employees.last_name) AS "Department Manager", salaries.salary AS Salary
+FROM departments
+    JOIN dept_manager
+        ON departments.dept_no = dept_manager.dept_no
+    JOIN employees
+        ON dept_manager.emp_no = employees.emp_no
+    JOIN salaries
+        ON employees.emp_no = salaries.emp_no
+WHERE salaries.to_date = '9999-01-01'
+AND dept_manager.to_date = '9999-01-01'
+ORDER BY departments.dept_name
+;
+
 
 
 
