@@ -14,7 +14,8 @@ FROM titles;
 SELECT last_name
 FROM employees
 WHERE last_name LIKE 'E%' AND last_name LIKE '%E'
-GROUP BY last_name;
+GROUP BY last_name
+ORDER BY last_name;
 
 -- Update your previous query to now find unique combinations of first and last name where the last name starts and ends with 'E'. You should get 846 rows.
 SELECT last_name
@@ -28,7 +29,7 @@ WHERE last_name LIKE '%q%' AND last_name NOT LIKE '%qu%'
 GROUP BY last_name;
 
 -- Add a COUNT() to your results and use GROUP BY to make it easier to find employees whose unusual name is shared with others.
-SELECT CONCAT(COUNT(last_name), ' ', last_name)
+SELECT COUNT(*) AS Total, last_name AS "Last Name"
 FROM employees
 WHERE last_name LIKE '%q%' AND last_name NOT LIKE '%qu%'
 GROUP BY last_name;
