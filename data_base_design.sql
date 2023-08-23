@@ -64,8 +64,54 @@ INSERT INTO ads_categories(ads_id, categories_id) VALUES
 
 SHOW TABLES;
 
+-- For a given ad, what is the email address of the user that created it?
+SELECT email
+FROM users
+WHERE id IN (
+        SELECT users_id
+        FROM ads
+        WHERE title = 'Old sock - heavily used'
+    )
+;
 
+-- For a given ad, what category, or categories, does it belong to?
 
+SELECT category_name
+FROM categories
+WHERE id IN (
+        SELECT categories_id
+        FROM ads_categories
+        WHERE ads_id IN (
+            SELECT id
+            FROM ads
+            WHERE title LIKE '%chair%'
+            )
+    )
+;
+
+-- For a given category, show all the ads that are in that category.
+SELECT *
+FROM ads
+WHERE id IN (
+    SELECT ads_id
+    FROM ads_categories
+    WHERE categories_id IN (
+        SELECT id
+        FROM categories
+        WHERE category_name = 'giveaway'
+        )
+    )
+;
+
+-- For a given user, show all the ads they have posted.
+SELECT *
+FROM ads
+WHERE users_id IN (
+        SELECT id
+        FROM users
+        WHERE user_name = 'ava_smith'
+    )
+;
 
 
 
