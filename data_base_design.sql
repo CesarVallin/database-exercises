@@ -9,8 +9,7 @@ DROP TABLE IF EXISTS categories;
 DROP TABLE IF EXISTS users;
 
 
-CREATE TABLE users
-(
+CREATE TABLE users (
     id        INT UNSIGNED NOT NULL AUTO_INCREMENT,
     email     VARCHAR(100) NOT NULL UNIQUE,
     user_name VARCHAR(150) NOT NULL UNIQUE,
@@ -18,6 +17,7 @@ CREATE TABLE users
     PRIMARY KEY (id)
 )
 ;
+
 CREATE TABLE ads (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     title VARCHAR(150) NOT NULL,
@@ -54,6 +54,8 @@ INSERT INTO categories (category_name) VALUES
                                            ('services'),
                                            ('event'),
                                            ('appliances');
+
+
 
 INSERT INTO users(email, user_name, password) VALUES
                                                   ('ava@email', 'ava_smith', 'ava1234'),
